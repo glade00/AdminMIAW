@@ -1,14 +1,11 @@
-import { Component } from '@angular/core';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss']
 })
-
-export class AppComponent {
-  title = 'Dashboard';
+export class DashboardComponent implements OnInit {
   user = {
     name: 'Jean'
   };
@@ -37,4 +34,9 @@ export class AppComponent {
       name: 'Bastien',
     }
   ];
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
 }

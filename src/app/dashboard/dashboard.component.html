@@ -1,0 +1,21 @@
+<p>
+  Bienvenue {{ user.name }}, que faisons-nous aujourd'hui ?
+</p>
+<section class="skills">
+  <h2>Compétences récentes</h2>
+  <ul class="skills__list">
+    <li *ngFor="let skill of skills">
+      <img *ngIf="skill.logo" [src]="skill.logo" [alt]="skill.name">
+
+      {{ skill.name }}
+    </li>
+  </ul>
+</section>
+<section class="clients">
+  <ul class="clients__list">
+    <li *ngFor="let client of clients">
+      <app-client-item [client]="client"></app-client-item>
+
+    </li>
+  </ul>
+</section>

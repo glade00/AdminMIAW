@@ -9,29 +9,29 @@
 </head>
 
 <body>
-  <h1>
-    {{ title }}
-  </h1>
-  <p>
-    Bienvenue {{ user.name }}, que faisons-nous aujourd'hui ?
-  </p>
-  <section class="skills">
-    <h2>Compétences récentes</h2>
-    <ul>
-      <li *ngFor="let skill of skills">
-        <img *ngIf="skill.logo" [src]="skill.logo" [alt]="skill.name">
 
-        {{ skill.name }}
-      </li>
-    </ul>
-  </section>
-  <section class="clients">
-    <ul>
-      <li *ngFor="let client of clients">
-        {{ client.name }}
-      </li>
-    </ul>
-  </section>
+  <mat-sidenav-container>
+    <mat-sidenav mode="side" opened>
+
+      <header class="menu">
+        <mat-nav-list>
+          <a mat-list-item href="/dashboard">Dashboard</a>
+          <a mat-list-item href="/clients">Clients</a>
+          <a mat-list-item href="/competences">Compétences</a>
+        </mat-nav-list>
+      </header>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <h1>
+        {{ title }}
+      </h1>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+
+
 
 </body>
 
