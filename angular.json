@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "admin-miaw"
+  "defaultProject": "admin-miaw",
+  "cli": {
+    "analytics": "43be010d-16a1-44f4-a6d2-c4d388eb5d68"
+  }
 }
