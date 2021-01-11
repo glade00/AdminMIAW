@@ -2,14 +2,14 @@
   <mat-form-field>
     <mat-label for="name">Nom</mat-label>
     <input type="text" matInput formControlName="name" id="name">
-    <mat-error *ngIf="form.dirty || form.touched">
-      <span *ngIf="form.get('name').hasError('required')">
+    <!--  <mat-error *ngIf="form.dirty || form.touched">
+       <span *ngIf="form.get('name').hasError('required')">
         Le nom est obligatoire.
       </span>
       <span *ngIf="form.get('name').hasError('minlength')">
         La description doit comporter plus de 2 caractères.
       </span>
-    </mat-error>
+    </mat-error>-->
   </mat-form-field>
   <mat-form-field>
     <mat-label for="description">Description</mat-label>
@@ -32,5 +32,5 @@
     </mat-select>
   </mat-form-field>
 
-  <button (click)="add()" mat-raised-button color="primary">Ajouter le client</button>
+  <button mat-raised-button color="primary">Ajouter le client</button>
 </form>

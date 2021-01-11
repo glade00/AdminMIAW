@@ -4,7 +4,5 @@ export interface Client {
   description?: String;
   date?: String;
   type?: String;
-  clients: Client[];
-  clientsData: Client[];
 
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Client } from '../models/client';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +30,7 @@ export class ClientsService {
     });
   }
 
-  addClient(data: Client) {
+  addClient(data: Client): Observable<any> {
     return this.httpClient.post('http://localhost:3000/clients', data);
   }
 }

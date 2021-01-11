@@ -22,6 +22,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
     declarations: [
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
         ClientsComponent,
         SkillsComponent,
         ClientItemComponent,
-        ClientFormComponent
+        ClientFormComponent,
+        LoginComponent
     ],
     imports: [
         BrowserModule,
