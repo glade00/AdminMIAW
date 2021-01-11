@@ -60,14 +60,13 @@ body{
 mat-sidenav-container {
   height: 100%;
  }
- mat-nav-list{
+ mat-sidenav-content{
    display: flex;
     flex-direction: column;
-    width: 15%;
+    width: 100%;
     margin-right: 20%;
     height: 100vh;
     position: fixed;
-    background-color: royalblue;
     padding: 10px;
     left: 0;
  }
@@ -77,3 +76,12 @@ mat-sidenav-container {
  a{text-decoration: none;
 margin-bottom: 10px;
 color: white;}
+
+mat-sidenav{
+  background-color: royalblue;
+
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
