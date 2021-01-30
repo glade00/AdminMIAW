@@ -1,1 +1,15 @@
-<p>login works!</p>
+<form [formGroup]="form" (ngSubmit)="connect()">
+  <mat-form-field>
+    <mat-label for="username">Username</mat-label>
+    <input type="text" matInput formControlName="username" id="username">
+    <mat-form-field>
+
+    </mat-form-field>
+
+    <mat-label for="password">Mot de passe</mat-label>
+    <input type="password" matInput formControlName="password" id="password">
+  </mat-form-field>
+
+
+  <button mat-raised-button color="primary">Connexion</button>
+</form>

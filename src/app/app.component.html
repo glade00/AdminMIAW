@@ -1,5 +1,6 @@
 <mat-sidenav-container>
-    <mat-sidenav mode="side" opened>
+    <mat-sidenav mode="side" opened *ngIf="tokenStorageService.isAuthenticate()">
+
         <header>
             <nav class="flex-column jc-space-between">
                 <mat-nav-list>
@@ -12,6 +13,9 @@
 
                     <mat-list-item>
                         <a routerLink="/competences" routerLinkActive="router-link-active">Compétences</a>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <a routerLink="/connexion" routerLinkActive="router-link-active">Connexion</a>
                     </mat-list-item>
                 </mat-nav-list>
             </nav>

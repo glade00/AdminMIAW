@@ -21,8 +21,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { UserService } from './services/user.service';
+import { TokenStorageService } from './services/token-storage.service';
+import { NgxWebstorageModule } from 'ngx-webstorage';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AppInterceptor } from './services/app.interceptor';
 
 @NgModule({
     declarations: [
@@ -48,12 +52,23 @@ import { LoginComponent } from './login/login.component';
         MatDatepickerModule,
         MatNativeDateModule,
         MatButtonModule,
-        HttpClientModule
+        HttpClientModule,
+        NgxWebstorageModule.forRoot(),
+        TokenStorageService
+
 
 
     ],
     providers: [
         ClientsService,
+        UserService,
+        TokenStorageService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AppInterceptor,
+            multi: true,
+        }
+
     ],
     bootstrap: [AppComponent]
 })

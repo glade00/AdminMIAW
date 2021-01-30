@@ -4,10 +4,13 @@ import { ClientsComponent } from './clients/clients.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SkillsComponent } from './skills/skills.component';
 import { ClientFormComponent } from './client-form/client-form.component';
+import { LoginComponent } from './login/login.component';
+import { AuthenticationGuard } from './guards/authentication.guard';
 
 const routes: Routes = [
     {
         path: 'competences',
+        canActivate: [AuthenticationGuard],
         component: SkillsComponent
     },
     {
@@ -26,6 +29,10 @@ const routes: Routes = [
     {
         path: 'dashboard',
         component: DashboardComponent
+    },
+    {
+        path: 'connexion',
+        component: LoginComponent
     }
 ];
 
