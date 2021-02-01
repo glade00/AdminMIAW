@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClientsService } from '../services/clients.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-form',
@@ -11,12 +11,17 @@ import { Router } from '@angular/router';
 export class ClientFormComponent implements OnInit {
 
   name: '';
+  isEditMode: '';
   form: FormGroup;
 
-  constructor(private clientsService: ClientsService, private fb: FormBuilder, private router: Router) { }
+  constructor(private clientsService: ClientsService, private fb: FormBuilder, private router: Router, private route: ActivatedRoute) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.initForm();
+    this.isEditMode = this.route.snapshot.data.edit;
+    if (this.route.snapshot.data.edit) {
+      this.getData();
+    }
   }
 
   initForm() {
@@ -28,9 +33,31 @@ export class ClientFormComponent implements OnInit {
     });
   }
 
+  onSubmit() {
+    if (this.isEditMode) {
+      this.edit();
+    } else {
+      this.add();
+    }
+  }
+
   add() {
     this.clientsService.addClient(this.form.value).subscribe(response => {
       this.router.navigate(['/clients']);
     });
+  }
+
+  edit() {
+    this.clientsService.updateClient(this.route.snapshot.paramMap.get('id'), this.form.value).subscribe(response => {
+      this.router.navigate(['/clients']);
+    })
+  }
+
+  getData() {
+    this.clientsService
+      .getClient(this.route.snapshot.paramMap.get('id'))
+      .subscribe(response => {
+        this.form.patchValue(response);
+      });
   }
 }

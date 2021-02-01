@@ -1,8 +1,7 @@
+<h2>Nos clients</h2>
+<a routerLink="nouveau">Ajouter un client</a>
 <ul>
     <li *ngFor="let client of clients">
         <app-client-item [client]="client"></app-client-item>
-    </li>
-    <li>
-        <a routerLink="nouveau">Ajouter un client</a>
     </li>
 </ul>

@@ -1,6 +1,7 @@
+<h2>Nos compétences</h2>
 <ul>
     <li *ngFor="let skill of skills">
         {{ skill.name }}
-        <img *ngIf="skill.logo" [src]="skill.logo" [alt]="skill.name">
+        <img *ngIf="skill.logo" class="skill__logo" [src]="skill.logo" [alt]="skill.name">
     </li>
 </ul>

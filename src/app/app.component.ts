@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { TokenStorageService } from '../app/services/token-storage.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Admin lp Miaw';
+  title = 'Dashboard';
+
+  constructor(public tokenStorageService: TokenStorageService) { }
 }

@@ -1,15 +1,29 @@
-<form [formGroup]="form" (ngSubmit)="connect()">
-  <mat-form-field>
-    <mat-label for="username">Username</mat-label>
-    <input type="text" matInput formControlName="username" id="username">
-    <mat-form-field>
+<h2>Se connecter</h2>
+<form [formGroup]="form" (ngSubmit)="login()">
+    <div class="example-container">
+        <mat-form-field>
+            <mat-label for="name">Nom d'utilisateur</mat-label>
+            <input type="text" matInput formControlName="username" name="username" id="username">
+        </mat-form-field>
+    </div>
 
-    </mat-form-field>
+    <mat-error>
+        <span *ngIf="form.get('username').hasError('required')">Le nom d'utilisateur est obligatoire.</span>
+    </mat-error>
 
-    <mat-label for="password">Mot de passe</mat-label>
-    <input type="password" matInput formControlName="password" id="password">
-  </mat-form-field>
+    <div class="example-container">
+        <mat-form-field>
+            <mat-label>Entrer votre mot de passe</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" name="password" id="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
 
-
-  <button mat-raised-button color="primary">Connexion</button>
+    <mat-error>
+        <span *ngIf="form.get('password').hasError('required')">Le mot de passe est obligatoire.</span>
+    </mat-error>
+      
+    <button mat-raised-button color="primary">Se connecter</button>
 </form>
